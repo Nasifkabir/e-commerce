@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation"
 import { ShoppingBag, User, Search, Menu } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
+import { useEffect } from "react"
 
 export default function Navbar() {
   const pathname = usePathname()
@@ -22,8 +23,32 @@ export default function Navbar() {
     { name: "Home & Garden", href: "/categories/home" },
   ]
 
+  // Navbars behavior handler
+
+  const [lastScrollY, setLastScrollY] = useState(0);
+  const [showNavbar, setShowNavbar] = useState(true);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > lastScrollY) {
+        setShowNavbar(false);
+      } else {
+        setShowNavbar(true);
+      }
+      setLastScrollY(window.scrollY);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [lastScrollY]);
+
   return (
-    <header className="border-b sticky top-0 bg-background z-40">
+    <section className={`top-0 sticky z-50 bg-inherit py-2 transition-transform duration-300 ${
+      showNavbar ? "translate-y-0" : "-translate-y-full"
+    }`}>
       <div className="container mx-auto px-4 py-4 flex items-center justify-between">
         <div className="flex items-center">
           <Sheet open={isMenuOpen} onOpenChange={setIsMenuOpen}>
@@ -97,6 +122,6 @@ export default function Navbar() {
           </Link>
         </div>
       </div>
-    </header>
+    </section>
   )
 }

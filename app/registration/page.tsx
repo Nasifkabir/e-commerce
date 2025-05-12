@@ -214,7 +214,7 @@ export default function RegistrationPage() {
               <CardHeader>
                 <CardTitle className="text-2xl">Verify your email</CardTitle>
                 <CardDescription>
-                  We've sent a verification code to <span className="font-medium">{formData.email}</span>
+                  We&apos;ve sent a verification code to <span className="font-medium">{formData.email}</span>
                 </CardDescription>
               </CardHeader>
               <CardContent className="space-y-6">
@@ -227,7 +227,7 @@ export default function RegistrationPage() {
                 </div>
 
                 <div className="text-center">
-                  <p className="text-sm text-muted-foreground mb-2">Didn't receive a code?</p>
+                  <p className="text-sm text-muted-foreground mb-2">Didn&apos;t receive a code?</p>
                   <Button
                     variant="link"
                     onClick={handleResendOtp}

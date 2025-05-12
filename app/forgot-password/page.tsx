@@ -118,7 +118,7 @@ export default function ForgotPasswordPage() {
               <CardHeader>
                 <CardTitle className="text-2xl">Forgot Password</CardTitle>
                 <CardDescription>
-                  Enter your email address and we'll send you a verification code to reset your password.
+                  Enter your email address and we&apos;ll send you a verification code to reset your password.
                 </CardDescription>
               </CardHeader>
               <CardContent>
@@ -161,7 +161,7 @@ export default function ForgotPasswordPage() {
               <CardHeader>
                 <CardTitle className="text-2xl">Verify your email</CardTitle>
                 <CardDescription>
-                  We've sent a verification code to <span className="font-medium">{email}</span>
+                  We&apos;ve sent a verification code to <span className="font-medium">{email}</span>
                 </CardDescription>
               </CardHeader>
               <CardContent className="space-y-6">
@@ -174,7 +174,7 @@ export default function ForgotPasswordPage() {
                 </div>
 
                 <div className="text-center">
-                  <p className="text-sm text-muted-foreground mb-2">Didn't receive a code?</p>
+                  <p className="text-sm text-muted-foreground mb-2">Didn&apos;t receive a code?</p>
                   <Button
                     variant="link"
                     onClick={handleResendOtp}
